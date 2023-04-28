@@ -6,18 +6,13 @@ const Authenticator = defineComponent({
     const facade = useAuthenticator();
     return { facade };
   },
-  computed: {
-    route() {
-      return this.facade.route;
-    },
-  },
   mounted() {
     const { initializeMachine } = this.facade;
     console.log('[Authenticator] initializing machine...');
     initializeMachine({});
   },
   render() {
-    return <div>{this.route}!</div>;
+    return <div>{this.facade.route}</div>;
   },
 });
 
