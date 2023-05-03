@@ -32,7 +32,11 @@ export const ColorPicker = ({
   return (
     <>
       <Popover
-        title="Contrast color options"
+        title={
+          <VisuallyHidden id="colorOptions">
+            Contrast color options
+          </VisuallyHidden>
+        }
         triggerEl={
           <ColorSwatch
             as="button"

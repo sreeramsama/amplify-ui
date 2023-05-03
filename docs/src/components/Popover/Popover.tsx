@@ -93,7 +93,7 @@ export const Popover = ({
       console.log(boundingClientRect);
       setPosition({
         x: 0,
-        y: boundingClientRect.height,
+        y: boundingClientRect.height + 12,
       });
     }
   }, [triggerRef, showPopover, setPosition]);
