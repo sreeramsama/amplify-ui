@@ -96,7 +96,10 @@
 .docs-cardLinkGroup {
   padding-bottom: var(--amplify-space-large);
 }
-.docs-cardLinkGroup-title {
+
+.docs-linkableHeader {
+}
+.docs-linkableHeader--border {
   position: relative;
   color: var(--amplify-colors-font-tertiary);
   font-weight: var(--amplify-font-weights-bold);

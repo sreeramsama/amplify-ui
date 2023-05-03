@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Grid, Link, Heading } from '@aws-amplify/ui-react';
+import { LinkableHeader } from './LinkableHeader';
 
 interface CardLinkProps {
   href: string;
@@ -55,18 +56,9 @@ export function CardLinkGroup({
   return (
     <>
       {title ? (
-        <Heading id={id} className="docs-cardLinkGroup-title" level={2}>
-          {
-            /* Assuming you added an id for this to show in the ToC,
-             * we'll add the utility hover anchor link here */
-            id ? (
-              <a aria-hidden="true" tabIndex={-1} href={`#${id}`}>
-                <span className="icon icon-link"></span>
-              </a>
-            ) : null
-          }
+        <LinkableHeader variation="border" id={id}>
           {title}
-        </Heading>
+        </LinkableHeader>
       ) : null}
       <Grid
         className="docs-cardLinkGroup"

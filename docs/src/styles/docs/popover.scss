@@ -1,0 +1,27 @@
+.popover {
+  position: absolute;
+  width: 300px;
+  margin: auto;
+  background: var(--amplify-colors-background-primary);
+  box-shadow: var(--amplify-shadows-medium);
+  border: 1px solid var(--amplify-colors-border-tertiary);
+  z-index: 1;
+}
+
+.popover-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.popover[aria-hidden='true'] {
+  display: none;
+}
+.popover__header {
+  align-items: center;
+  padding: var(--amplify-space-medium) var(--amplify-space-medium) 0;
+}
+
+.popover__content {
+  padding: var(--amplify-space-small) var(--amplify-space-medium)
+    var(--amplify-space-medium);
+}

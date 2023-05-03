@@ -1,26 +1,22 @@
+import * as React from 'react';
 import { View, Text } from '@aws-amplify/ui-react';
+import { ColorSwatch } from './ColorSwatch';
 import {
-  ColorValue,
-  FontWeightValue,
-  FontValue,
-  LineHeightValue,
-  FontSizeValue,
-  BorderWidthValue,
-  SpaceValue,
-  RadiusValue,
-} from '@aws-amplify/ui';
-
-type GenericBlockProps = {
-  value: string;
-};
+  GenericBlockProps,
+  SpaceBlockProps,
+  BorderWidthBlockProps,
+  FontBlockProps,
+  FontSizeBlockProps,
+  FontWeightBlockProps,
+  FontFamilyBlockProps,
+  LineHeightBlockProps,
+  RadiusBlockProps,
+  TokenBlockProps,
+} from './types';
 
 export function GenericBlock({ value }: GenericBlockProps) {
-  return <div></div>;
+  return <div>{value}</div>;
 }
-
-type SpaceBlockProps = {
-  value: SpaceValue;
-};
 
 export function SpaceBlock({ value }: SpaceBlockProps) {
   return (
@@ -29,10 +25,6 @@ export function SpaceBlock({ value }: SpaceBlockProps) {
     </View>
   );
 }
-
-type BorderWidthBlockProps = {
-  value: BorderWidthValue;
-};
 
 export function BorderWidthBlock({ value }: BorderWidthBlockProps) {
   return (
@@ -44,10 +36,6 @@ export function BorderWidthBlock({ value }: BorderWidthBlockProps) {
   );
 }
 
-type FontBlockProps = {
-  children: React.ReactNode;
-};
-
 export function FontBlock({ children }: FontBlockProps) {
   return (
     <View className="docs-fontBlock" aria-hidden="true">
@@ -55,10 +43,6 @@ export function FontBlock({ children }: FontBlockProps) {
     </View>
   );
 }
-
-type FontSizeBlockProps = {
-  value: FontSizeValue;
-};
 
 export function FontSizeBlock({ value }: FontSizeBlockProps) {
   return (
@@ -69,10 +53,6 @@ export function FontSizeBlock({ value }: FontSizeBlockProps) {
     </FontBlock>
   );
 }
-
-type LineHeightBlockProps = {
-  value: LineHeightValue;
-};
 
 export function LineHeightBlock({ value }: LineHeightBlockProps) {
   return (
@@ -89,10 +69,6 @@ export function LineHeightBlock({ value }: LineHeightBlockProps) {
   );
 }
 
-type FontFamilyBlockProps = {
-  value: FontValue;
-};
-
 export function FontFamilyBlock({ value }: FontFamilyBlockProps) {
   return (
     <FontBlock>
@@ -103,10 +79,6 @@ export function FontFamilyBlock({ value }: FontFamilyBlockProps) {
   );
 }
 
-type FontWeightBlockProps = {
-  value: FontWeightValue;
-};
-
 export function FontWeightBlock({ value }: FontWeightBlockProps) {
   return (
     <FontBlock>
@@ -116,18 +88,6 @@ export function FontWeightBlock({ value }: FontWeightBlockProps) {
     </FontBlock>
   );
 }
-
-type ColorBlockProps = {
-  value: ColorValue;
-};
-
-export function ColorBlock({ value }: ColorBlockProps) {
-  return <View className="docs-colorBlock" backgroundColor={value}></View>;
-}
-
-type RadiusBlockProps = {
-  value: RadiusValue;
-};
 
 export function RadiusBlock({ value }: RadiusBlockProps) {
   const minBlockSize = 'calc(2rem + 1px)';
@@ -159,3 +119,31 @@ export function RadiusBlock({ value }: RadiusBlockProps) {
     </div>
   );
 }
+
+const TokenBlockPrimitive = (
+  { namespace, value }: TokenBlockProps,
+  ref: React.Ref<HTMLDivElement>
+) => {
+  switch (namespace) {
+    case 'fontWeights':
+      return <FontWeightBlock value={value} />;
+    case 'fontSizes':
+      return <FontSizeBlock value={value} />;
+    case 'fonts':
+      return <FontFamilyBlock value={value} />;
+    case 'lineHeights':
+      return <LineHeightBlock value={value} />;
+    case 'borderWidths':
+      return <BorderWidthBlock value={value} />;
+    case 'space':
+      return <SpaceBlock value={value} />;
+    case 'colors':
+      return <ColorSwatch color={value} ref={ref} />;
+    case 'radii':
+      return <RadiusBlock value={value} />;
+    default:
+      return <GenericBlock value={value} />;
+  }
+};
+
+export const TokenBlock = React.forwardRef(TokenBlockPrimitive);
