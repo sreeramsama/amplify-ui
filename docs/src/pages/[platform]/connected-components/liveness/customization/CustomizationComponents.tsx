@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaceLivenessDetector } from '@aws-amplify/ui-react-liveness';
 import { View, Heading, Alert, Card, Text } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 export function CustomizationComponents() {
   return (

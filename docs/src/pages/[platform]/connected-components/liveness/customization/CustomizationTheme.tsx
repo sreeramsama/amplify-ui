@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaceLivenessDetector } from '@aws-amplify/ui-react-liveness';
 import { Theme, ThemeProvider, useTheme } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 export function CustomizationTheme() {
   const { tokens } = useTheme();

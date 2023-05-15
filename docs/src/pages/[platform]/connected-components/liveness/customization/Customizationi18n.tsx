@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaceLivenessDetector } from '@aws-amplify/ui-react-liveness';
 import { ToggleButtonGroup, ToggleButton } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 const dictionary = {
   // use default strings for english
