@@ -1,5 +1,5 @@
 <img src="./docs/public/amplify-logo.svg" alt="AWS Amplify Logo" style="width:2vw"> AWS Amplify
-
+1
 ---
 
 <p align="center">
