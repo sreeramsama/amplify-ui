@@ -1,5 +1,11 @@
 module.exports = {
-  ignorePatterns: ['dist', '.eslintrc.js', '*.config.js', 'jest.setup.js'],
+  ignorePatterns: [
+    'commonjs',
+    'dist',
+    '.eslintrc.js',
+    '*.config.js',
+    'jest.setup.js',
+  ],
   extends: ['@aws-amplify/amplify-ui/react'],
   overrides: [
     {
