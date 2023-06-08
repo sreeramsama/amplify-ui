@@ -84,7 +84,6 @@ jobs:
           matrix.package == 'react' ||
           matrix.package == 'react-core-notifications' ||
           matrix.package == 'react-native' ||
-          matrix.package == 'react-geo' ||
           matrix.package == 'react-storage' ||
           matrix.package == 'react-liveness' ||
           matrix.package == 'react-notifications'
@@ -92,17 +91,13 @@ jobs:
 
       - name: Build react-core-notifications package
         if: |
-          matrix.package == 'react' ||
           matrix.package == 'react-native' ||
-          matrix.package == 'react-storage' ||
-          matrix.package == 'react-liveness' ||
           matrix.package == 'react-notifications'
         run: yarn react-core-notifications build
 
       - name: Build react package
         if: |
           matrix.package == 'react-notifications' ||
-          matrix.package == 'react-geo' ||
           matrix.package == 'react-storage' ||
           matrix.package == 'react-liveness'
         run: yarn react build
